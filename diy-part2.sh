@@ -21,4 +21,4 @@ sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/M
 #sed -i 's/OpenWrt/P3TERX-Router/g' package/base-files/files/bin/config_generate
 
 # Open remote ttyd
-sed -i 's/${interface:+-i $interface}/#${interface:+-i $interface}' /feeds/packages/utils/ttyd/files/ttyd.init
+sed -i 's/${interface:+-i $interface}/#${interface:+-i $interface}/g' /feeds/packages/utils/ttyd/files/ttyd.init
