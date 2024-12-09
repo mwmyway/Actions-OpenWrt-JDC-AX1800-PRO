@@ -23,7 +23,7 @@ sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/M
 # Open remote ttyd
 sed -i 's/${interface:+-i $interface}/#${interface:+-i $interface}/g' /feeds/packages/utils/ttyd/files/ttyd.config
 
-#TTYD 免登录
+# TTYD 免登录
 sed -i 's|/bin/login|/bin/login -f root|g' feeds/packages/utils/ttyd/files/ttyd.config
 
 # 修复 hostapd 报错
