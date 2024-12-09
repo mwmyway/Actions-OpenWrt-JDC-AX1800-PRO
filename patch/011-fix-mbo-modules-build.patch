@@ -1,3 +1,4 @@
+## 修复 hostapd 报错
 From d65ef1d0ddf9a0e7e7d6fb9d4c9d3319d2b311f1 Mon Sep 17 00:00:00 2001
 From: W_Y_CPP <383152993@qq.com>
 Date: Sun, 28 May 2023 13:44:07 +0900
