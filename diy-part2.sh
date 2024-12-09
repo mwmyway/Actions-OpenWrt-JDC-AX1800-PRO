@@ -21,13 +21,11 @@ sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/M
 #sed -i 's/OpenWrt/P3TERX-Router/g' package/base-files/files/bin/config_generate
 
 # Open remote ttyd
-sed -i 's/${interface:+-i $interface}/#${interface:+-i $interface}/g' /feeds/packages/utils/ttyd/files/ttyd.config
+#sed -i 's/${interface:+-i $interface}/#${interface:+-i $interface}/g' /feeds/packages/utils/ttyd/files/ttyd.init
 
 # TTYD 免登录
-sed -i 's|/bin/login|/bin/login -f root|g' feeds/packages/utils/ttyd/files/ttyd.config
+#sed -i 's|/bin/login|/bin/login -f root|g' feeds/packages/utils/ttyd/files/ttyd.config
 
 # 修复 hostapd 报错
 cp -f $GITHUB_WORKSPACE/patchs/011-fix-mbo-modules-build.patch package/network/services/hostapd/patches/011-fix-mbo-modules-build.patch
 
-# x86 型号只显示 CPU 型号
-sed -i 's/${g}.*/${a}${b}${c}${d}${e}${f}${hydrid}/g' package/lean/autocore/files/x86/autocore
