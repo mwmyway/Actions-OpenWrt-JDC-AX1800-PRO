@@ -18,7 +18,7 @@ sed -i 's/192.168.$((addr_offset++)).1/192.168.$((addr_offset++)).1/g' package/b
 sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/Makefile
 
 # Modify hostname
-sed -i 's/OpenWrt/JDC AX1800-PRO/g' package/base-files/files/bin/config_generate
+sed -i 's/OpenWrt/360T7/g' package/base-files/files/bin/config_generate
 
 # Open remote ttyd
 sed -i 's/${interface:+-i $interface}/#${interface:+-i $interface}/g' /feeds/packages/utils/ttyd/files/ttyd.init
