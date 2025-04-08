@@ -163,15 +163,22 @@ jobs:
         [ ${UPLOAD_GOFILE} = true && ${{ steps.gofile.outputs.url }} ] && echo "🔗 [GoFile](${{ steps.gofile.outputs.url }})" >> release.txt
         echo "status=success" >> $GITHUB_OUTPUT
 
-    - name: Upload firmware to release(发布固件至Release)
-      uses: softprops/action-gh-release@master
-      if: steps.tag.outputs.status == 'success' && !cancelled()
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: Create release
+      id: release
+      uses: ncipollo/release-action@main
       with:
-        tag_name: ${{ steps.tag.outputs.release_tag }}
-        body_path: release.txt
-        files: ${{ env.FIRMWARE }}/*
+        name: ${{ env.DATE }} OpenWrt for ${{ env.PRODUCT_NAME }}
+        allowUpdates: true
+        tag: ${{ env.DATE2 }}_${{ env.FILE_NAME }}
+        commit: main
+        token: ${{ secrets.RELEASES_TOKEN }}
+        body: |
+          #### 📒 固件信息
+          - ⚽ 固件源码: ${{ env.REPO_URL }}
+          - 💝 源码分支: ${{ env.REPO_BRANCH }}
+          - 🌐 默认地址: 192.168.10.1
+          - 🔑 默认密码: password
+        artifacts: ${{ env.FIRMWARE }}/*
 
     - name: Delete workflow runs(删除编译记录)
       uses: Mattraks/delete-workflow-runs@main
